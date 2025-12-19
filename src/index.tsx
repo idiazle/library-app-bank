@@ -4,6 +4,7 @@ import HeaderMovements from './components/molecules/HeaderMovements';
 import Header from './components/molecules/Header';
 import CardTransaction from './components/molecules/CardTransaction';
 import ButtonCustom from './components/molecules/ButtonCustom';
+import NativeNetworkMonitor from './NativeNetworkMonitor';
 import NativeSecureStorage, {
   type KeyStorage,
   type SetKeyStorage,
@@ -36,6 +37,18 @@ function removeItem({ key }: KeyStorage) {
   return NativeSecureStorage.removeItem({ key });
 }
 
+function getAllKeys() {
+  return NativeSecureStorage.getAllKeys();
+}
+
+function clearStorage() {
+  return NativeSecureStorage.clear();
+}
+
+function getConnectionInfo() {
+  return NativeNetworkMonitor.getCurrentState();
+}
+
 //export all components
 export {
   BannerInformativo,
@@ -47,4 +60,7 @@ export {
   setItem,
   getItem,
   removeItem,
+  getAllKeys,
+  clearStorage,
+  getConnectionInfo,
 };
